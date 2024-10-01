@@ -43,11 +43,18 @@ function showData(planetName, planetClimate, planetPopulation, planetTerrain,pla
 }
 
 async function searchPlanets() {
-  let result = await fetch('https://swapi.dev/api/planets/')
-  let {results} = await result.json();
-  console.log(results)
+  let allPlanets = [];
+  let url = 'https://swapi.dev/api/planets/';
+
+  while (url) {
+    let result = await fetch(url);
+    let {results, next} = await result.json();
+    
+    allPlanets = allPlanets.concat(results); 
+    url = next; 
+  }
   
-  results.forEach(planet => {
+  allPlanets.forEach(planet => {
     let li = document.createElement('li');
     if (planet.name.toLowerCase() === inputPlanet.value.toLowerCase()) {
     
