@@ -8,15 +8,18 @@
 <body>
   <div>
     <h1>Abra o console</h1>
-    <button onclick="listPlanets()">Exibir planetas no console</button>
+    <input id="inputPlanet" type="text" placeholder="Busque planetas aqui">
+    <button onclick="searchPlanets()">Procurar planetas</button>
+    <button onclick="listPlanets()">Exibir todos planetas no console</button>
   </div>
   <div>
     <ul id="buttonlist">
 
     </ul>
-  </div>
-  <div >
     <ul id="planetsData">
+
+    </ul>
+    <ul id="planetsSearch"></ul>
 
     </ul>
   </div>
